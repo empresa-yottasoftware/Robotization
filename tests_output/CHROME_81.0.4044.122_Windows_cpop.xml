@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="7"
+            failures="0"
+            tests="1">
+
+  <testsuite name="cpop"
+    errors="7" failures="0" hostname="" id="" package="cpop" skipped="0"
+    tests="1" time="47.87" timestamp="">
+  
+    <testcase name="CIC advanced search: Reporte" classname="cpop" time="47.87" assertions="0">
+    </testcase>
+  
+
+  
+    <system-err>
+      [0;31m  NoSuchElementError: An error occurred while running .setValue() command on &lt;input[name=&#34;ctl00$IFMainContent$txtLogin&#34;]&gt;: undefined; undefined
+   {&#34;sessionId&#34;:&#34;e04900cdab2be12fa5157626c7490654&#34;,&#34;status&#34;:0,&#34;value&#34;:[]}[0m
+[0;90m       at processTicksAndRejections (internal/process/task_queues.js:93:5)[0m
+[0;31m  NoSuchElementError: An error occurred while running .setValue() command on &lt;input[name=&#34;ctl00$IFMainContent$txtPasswd&#34;]&gt;: undefined; undefined
+   {&#34;sessionId&#34;:&#34;e04900cdab2be12fa5157626c7490654&#34;,&#34;status&#34;:0,&#34;value&#34;:[]}[0m
+[0;90m       at processTicksAndRejections (internal/process/task_queues.js:93:5)[0m
+[0;31m  NoSuchElementError: An error occurred while running .click() command on &lt;.btnAceptar[type=&#34;submit&#34;]&gt;: undefined; undefined
+   {&#34;sessionId&#34;:&#34;e04900cdab2be12fa5157626c7490654&#34;,&#34;status&#34;:0,&#34;value&#34;:[]}[0m
+[0;90m       at processTicksAndRejections (internal/process/task_queues.js:93:5)[0m
+[0;31m  NoSuchElementError: An error occurred while running .click() command on &lt;a[href=&#34;ConsultasDefault.aspx?opPag=1&#34;]&gt;: undefined; undefined
+   {&#34;sessionId&#34;:&#34;e04900cdab2be12fa5157626c7490654&#34;,&#34;status&#34;:0,&#34;value&#34;:[]}[0m
+[0;90m       at processTicksAndRejections (internal/process/task_queues.js:93:5)[0m
+[0;31m  NoSuchElementError: An error occurred while running .setValue() command on &lt;input[name=&#34;ctl00$ctl00$IFMainContent$DefaultContent$txtIdentificacion&#34;]&gt;: undefined; undefined
+   {&#34;sessionId&#34;:&#34;e04900cdab2be12fa5157626c7490654&#34;,&#34;status&#34;:0,&#34;value&#34;:[]}[0m
+[0;90m       at processTicksAndRejections (internal/process/task_queues.js:93:5)[0m
+[0;31m  NoSuchElementError: An error occurred while running .click() command on &lt;#IFMainContent_DefaultContent_pnlConsultaIndividual input[type=&#34;submit&#34;]&gt;: undefined; undefined
+   {&#34;sessionId&#34;:&#34;e04900cdab2be12fa5157626c7490654&#34;,&#34;status&#34;:0,&#34;value&#34;:[]}[0m
+[0;90m       at processTicksAndRejections (internal/process/task_queues.js:93:5)[0m
+[0;31m  NoSuchElementError: An error occurred while running .setValue() command on &lt;input[name=&#34;ctl00$IFMainContent$txtLogin&#34;]&gt;: undefined; undefined
+   {&#34;sessionId&#34;:&#34;d85e6f371626fc2537fcbcde01441a05&#34;,&#34;status&#34;:0,&#34;value&#34;:[]}[0m
+[0;90m       at processTicksAndRejections (internal/process/task_queues.js:93:5)[0m
+[0;31m  NoSuchElementError: An error occurred while running .setValue() command on &lt;input[name=&#34;ctl00$IFMainContent$txtPasswd&#34;]&gt;: undefined; undefined
+   {&#34;sessionId&#34;:&#34;d85e6f371626fc2537fcbcde01441a05&#34;,&#34;status&#34;:0,&#34;value&#34;:[]}[0m
+[0;90m       at processTicksAndRejections (internal/process/task_queues.js:93:5)[0m
+[0;31m  NoSuchElementError: An error occurred while running .click() command on &lt;.btnAceptar[type=&#34;submit&#34;]&gt;: undefined; undefined
+   {&#34;sessionId&#34;:&#34;d85e6f371626fc2537fcbcde01441a05&#34;,&#34;status&#34;:0,&#34;value&#34;:[]}[0m
+[0;90m       at processTicksAndRejections (internal/process/task_queues.js:93:5)[0m
+[0;31m  NoSuchElementError: An error occurred while running .click() command on &lt;a[href=&#34;ConsultasCPOPDefault.aspx?opPag=14&#34;]&gt;: undefined; undefined
+   {&#34;sessionId&#34;:&#34;d85e6f371626fc2537fcbcde01441a05&#34;,&#34;status&#34;:0,&#34;value&#34;:[]}[0m
+[0;90m       at processTicksAndRejections (internal/process/task_queues.js:93:5)[0m
+[0;31m  NoSuchElementError: An error occurred while running .setValue() command on &lt;input[name=&#34;ctl00$ctl00$IFMainContent$DefaultContent$txtIdentificacion&#34;]&gt;: undefined; undefined
+   {&#34;sessionId&#34;:&#34;d85e6f371626fc2537fcbcde01441a05&#34;,&#34;status&#34;:0,&#34;value&#34;:[]}[0m
+[0;90m       at processTicksAndRejections (internal/process/task_queues.js:93:5)[0m
+[0;31m  NoSuchElementError: An error occurred while running .setValue() command on &lt;input[name=&#34;ctl00$ctl00$IFMainContent$DefaultContent$txtNumeroAutorizacion&#34;]&gt;: undefined; undefined
+   {&#34;sessionId&#34;:&#34;d85e6f371626fc2537fcbcde01441a05&#34;,&#34;status&#34;:0,&#34;value&#34;:[]}[0m
+[0;90m       at processTicksAndRejections (internal/process/task_queues.js:93:5)[0m
+[0;31m  NoSuchElementError: An error occurred while running .click() command on &lt;#IFMainContent_DefaultContent_pnlConsultaIndividual input[type=&#34;submit&#34;]&gt;: undefined; undefined
+   {&#34;sessionId&#34;:&#34;d85e6f371626fc2537fcbcde01441a05&#34;,&#34;status&#34;:0,&#34;value&#34;:[]}[0m
+[0;90m       at processTicksAndRejections (internal/process/task_queues.js:93:5)[0m
+    </system-err>
+  
+
+  
+  </testsuite>
+</testsuites>
