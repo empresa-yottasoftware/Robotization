@@ -14,7 +14,7 @@
         "chromeOptions": {
           "args": [
             "start-maximized",
-            "user-data-dir=/home/idigital/ServiosFroddi/Robotizacion/chrome"
+            "user-data-dir=/home/linuxlite/ServiosFroddi/Robotization/chrome"
           ],
           "extensions": []
         }
