@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="1">
+
+  <testsuite name="cic-hitorica"
+    errors="0" failures="0" hostname="" id="" package="cic-hitorica" skipped="0"
+    tests="1" time="16.80" timestamp="">
+  
+    <testcase name="demoTestAsync" classname="cic-hitorica" time="16.80" assertions="10">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+  
+  </testsuite>
+</testsuites>

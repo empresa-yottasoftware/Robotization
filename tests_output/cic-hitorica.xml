@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="0"
+            tests="0">
+
+  <testsuite name="cic-hitorica"
+    errors="1" failures="0" hostname="" id="" package="cic-hitorica" skipped="1"
+    tests="0" time="0.000" timestamp="">
+  
+
+  
+    <system-err>
+      [0;31m  Error: An error occurred while retrieving a new session: &#34;unknown error: Could not remove old devtools port file. Perhaps the given user-data-dir at /C:/Users/Desktop/Desktop/FroddiGitHub/ServiciosFroddi/Robotization/Robotization/chrome is still attached to a running Chrome or Chromium process&#34;[0m
+[0;90m       at endReadableNT (internal/streams/readable.js:1327:12)
+       at processTicksAndRejections (internal/process/task_queues.js:80:21)[0m
+    </system-err>
+  
+
+  
+    
+    <testcase
+      name="demoTestAsync" classname="cic-hitorica">
+      <skipped />
+    </testcase>
+    
+  
+  </testsuite>
+</testsuites>
