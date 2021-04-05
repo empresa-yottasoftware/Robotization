@@ -1,9 +1,8 @@
 const fs = require('fs') // Escribir un archivo
+const config = require('../utilitarios/configData')
 
 module.exports = {
   '@tags': ['cic-historica'],
-  abortOnElementLocateError: true,
-  asyncHookTimeout: 10000,
 
   demoTestAsync: async function (browser) {
     const { npm_config_varUser, npm_config_varPassword, npm_config_varclienteCI, npm_config_varInicioMes, npm_config_varFinMes, npm_config_varInicioAnio, npm_config_varFinAnio } = process.env
@@ -35,68 +34,39 @@ module.exports = {
 
     // ! URL
     browser.url('http://apps.supernet.bo/IC/Autentication.aspx')
-    // browser.pause(200000);
 
     //* Body login
-    browser.waitForElementVisible(mainQueryInputUser)
+    browser.pause(`${config.time}`)
     browser.setValue(mainQueryInputUser, mainUser)
-    browser.waitForElementVisible(mainQueryInputPassword)
     browser.setValue(mainQueryInputPassword, mainPassword)
-    browser.waitForElementVisible(submitButtonLogin)
     const resultClickLogin = await browser.click(submitButtonLogin) // onClick Login
     console.log('resultClickLogin', resultClickLogin)
 
-    // * Validación credenciales incorrectas
-    const resultAlertCredenciales = await browser.getAlertText()
-    console.log('resultAlertCredenciales', resultAlertCredenciales)
+    browser.pause(`${config.time}`)
+    browser.click(submitButtonConsultaHistorica) // onClick ConsultaHistorica
 
-    if (resultAlertCredenciales.status == -1) {
-      browser.waitForElementVisible(submitButtonConsultaHistorica)
-      browser.click(submitButtonConsultaHistorica) // onClick ConsultaHistorica
+    // * Body consulta de endeudamiento histórico
+    browser.pause(`${config.time}`)
+    browser.click(selectInicioMes)
+    browser.click(`${selectInicioMes} ${mainQueryInicioMes}`)
+    browser.click(selectFinMes)
+    browser.click(`${selectFinMes} ${mainQueryFinMes}`)
 
-      // * Body consulta de endeudamiento histórico
-      browser.waitForElementVisible(selectInicioMes)
-      browser.click(selectInicioMes)
-      browser.click(`${selectInicioMes} ${mainQueryInicioMes}`)
-      browser.waitForElementVisible(selectFinMes)
-      browser.click(selectFinMes)
-      browser.click(`${selectFinMes} ${mainQueryFinMes}`)
+    browser.click(selectInicioAnio)
+    browser.click(`${selectInicioAnio} ${mainQueryInicioAnio}`)
+    browser.click(selectFinAnio)
+    browser.click(`${selectFinAnio} ${mainQueryFinAnio}`)
 
-      browser.waitForElementVisible(selectInicioAnio)
-      browser.click(selectInicioAnio)
-      browser.click(`${selectInicioAnio} ${mainQueryInicioAnio}`)
-      browser.waitForElementVisible(selectFinAnio)
-      browser.click(selectFinAnio)
-      browser.click(`${selectFinAnio} ${mainQueryFinAnio}`)
+    // * Body consulta documento identidad
+    browser.pause(`${config.time}`)
+    browser.setValue(mainQueryInputCodIdentidad, mainCodIdentidad)
+    browser.click(submitButtonConsultar) // onClick consulta documento
+    browser.pause(5000)
 
-      // * Body consulta documento identidad
-      browser.waitForElementVisible(mainQueryInputCodIdentidad)
-      browser.setValue(mainQueryInputCodIdentidad, mainCodIdentidad)
-      browser.click(submitButtonConsultar) // onClick consulta documento
-      browser.pause(5000)
-
-      // * Body screenshots reporte
-      browser.resizeWindow(1924, 8024)
-      browser.saveScreenshot('./screenshots/report-asfi.png')
-
-      // *Body generar reporte
-      browser.waitForElementVisible(submitButtonConsultarReport)
-      browser.click(submitButtonConsultarReport) // onClick consulta report
-
-      browser.pause(6000)
-    } else {
-      // * True error credenciales, guarda respuesta.
-      browser.acceptAlert()
-      let dataErrorCredenciales = {
-        Correcto: true,
-        Estado: 2,
-        Mensaje: resultAlertCredenciales.value
-      }
-      dataErrorCredenciales = JSON.stringify(dataErrorCredenciales, null, 2)
-      fs.writeFile('db/dataErrorCredenciales.json', dataErrorCredenciales, err => {
-        if (err) throw new Error('No se puedo grabar', err)
-      })
-    }
+    // * Body generar reporte
+    browser.pause(`${config.time}`)
+    browser.click(submitButtonConsultarReport) // onClick consulta report
+    browser.pause(`${config.time}`)
   },
   after: function (browser) {
     browser.end()

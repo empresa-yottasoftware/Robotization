@@ -28,7 +28,7 @@ const cicHistorica = (pData = {}) => {
               fecha,
               tipoRobotizacion: 'Servicio ASFI-CIC-HISTORICA',
               Resultado: 'Consulta CIC-historica finalizada correctamente.',
-              Tipo: 'cic-historica'
+              Tipo: 'cic-historico'
             })
           })
           .catch(error => {

@@ -1,5 +1,5 @@
-2021/03/31-11:58:19.137 2ee8 Recovering log #86
-2021/03/31-11:58:19.137 2ee8 Level-0 table #88: started
-2021/03/31-11:58:19.143 2ee8 Level-0 table #88: 903 bytes OK
-2021/03/31-11:58:19.156 2ee8 Delete type=0 #86
-2021/03/31-11:58:19.156 2ee8 Delete type=3 #84
+2021/04/05-19:43:39.513 24b0 Recovering log #177
+2021/04/05-19:43:39.513 24b0 Level-0 table #179: started
+2021/04/05-19:43:39.578 24b0 Level-0 table #179: 906 bytes OK
+2021/04/05-19:43:39.588 24b0 Delete type=0 #177
+2021/04/05-19:43:39.588 24b0 Delete type=3 #175
