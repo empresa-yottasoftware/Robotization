@@ -11,7 +11,7 @@ const axios = require('axios')
 const qs = require('qs')
 const image2base64 = require('image-to-base64')
 const { finderCIC, finderCPOP } = require('../utilitarios/imageFinder')
-const { cicHistorica } = require('../controllers/asfi.controller')
+const { cicHistorico } = require('../controllers/cicHistorico')
 const { cic, cpop, cicNit } = require('../utilitarios/dataServidor.json')
 const config = require('../utilitarios/configData');
 let bodyParser = require('body-parser')
@@ -85,7 +85,7 @@ router.post('/cic', cors(), (req, res) => {
                 console.log('Autorización:', autorizacion, obj)
                 let imageNames = `${ciCliente}-${codigoUsuario}`
                 let imageNameCIC = `${imageNames}-CIC-${fecha}`
-                let dirCIC = finderCIC(dato).carteraDIR !== '' ? finderCIC(dato).carteraDIR : 'Sin deudas'
+                let dirCIC = finderCIC(dato).carteraDIR !== '' ? finderCIC(dato).carteraDIR : 'SIN DEUDAS'
                 let base64CIC = responseBase64
 
                 res.send({
@@ -174,7 +174,7 @@ router.post('/cic-nit', cors(), (req, res) => {
                 console.log('Autorización:', autorizacion, obj)
                 let imageNames = `${ciCliente}-${codigoUsuario}`
                 let imageNameCICNIT = `${imageNames}-CIC-NIT-${fecha}`
-                let dirCIC = finderCIC(dato).carteraDIR !== '' ? finderCIC(dato).carteraDIR : 'Sin deudas'
+                let dirCIC = finderCIC(dato).carteraDIR !== '' ? finderCIC(dato).carteraDIR : 'SIN DEUDAS'
                 let base64CICNIT = responseBase64
 
                 res.send({
@@ -359,7 +359,7 @@ router.post('/servidor/:tipo', cors(), (req, res) => {
 })
 
 // Creación de Router CIC-HISTORICA
-router.post('/cic-historica', cors(), (req, res) => {
+router.post('/cic-historico', cors(), (req, res) => {
   console.log(req.body)
   let user = req.body.user.toLowerCase()
   let password = req.body.password
@@ -372,7 +372,7 @@ router.post('/cic-historica', cors(), (req, res) => {
   console.log('Datos:', user, ciCliente, password)
   const { inicioMes, finMes, inicioAnio, finAnio } = req.body
 
-  exec(`npm --varUser=${user} --varPassword=${password} --varclienteCI=${ciCliente} --varInicioMes=${inicioMes} --varFinMes=${finMes} --varInicioAnio=${inicioAnio} --varFinAnio=${finAnio} test -- --tag cic-historica`, (error, stdout, stderr) => {
+  exec(`npm --varUser=${user} --varPassword=${password} --varclienteCI=${ciCliente} --varInicioMes=${inicioMes} --varFinMes=${finMes} --varInicioAnio=${inicioAnio} --varFinAnio=${finAnio} test -- --tag cic-historico`, (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`)
       return res.status(404).json({
@@ -381,7 +381,7 @@ router.post('/cic-historica', cors(), (req, res) => {
         err: stderr
       })
     }
-    cicHistorica({ ciCliente })
+    cicHistorico({ ciCliente })
       .then(result => {
         console.log(`result`, result)
         res.status(200).json(result)
