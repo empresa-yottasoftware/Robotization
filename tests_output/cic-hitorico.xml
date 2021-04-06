@@ -3,8 +3,8 @@
             failures="0"
             tests="0">
 
-  <testsuite name="cic"
-    errors="1" failures="0" hostname="" id="" package="cic" skipped="1"
+  <testsuite name="cic-hitorico"
+    errors="1" failures="0" hostname="" id="" package="cic-hitorico" skipped="1"
     tests="0" time="0.000" timestamp="">
   
 
@@ -19,7 +19,7 @@
   
     
     <testcase
-      name="CIC advanced search: Reporte" classname="cic">
+      name="demoTestAsync" classname="cic-hitorico">
       <skipped />
     </testcase>
     

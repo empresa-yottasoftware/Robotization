@@ -42,7 +42,7 @@ module.exports = {
     const resultClickLogin = await browser.click(submitButtonLogin) // onClick Login
     console.log('resultClickLogin', resultClickLogin)
 
-    browser.pause(`${config.time}`)
+    // browser.pause(`${config.time}`)
     browser.click(submitButtonConsultaHistorica) // onClick ConsultaHistorica
 
     // * Body consulta de endeudamiento histórico
@@ -61,12 +61,11 @@ module.exports = {
     browser.pause(`${config.time}`)
     browser.setValue(mainQueryInputCodIdentidad, mainCodIdentidad)
     browser.click(submitButtonConsultar) // onClick consulta documento
-    browser.pause(5000)
 
     // * Body generar reporte
     browser.pause(`${config.time}`)
     browser.click(submitButtonConsultarReport) // onClick consulta report
-    browser.pause(`5000`)
+    browser.pause(`${config.time}`)
   },
   after: function (browser) {
     browser.end()
