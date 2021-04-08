@@ -1,4 +1,3 @@
-const fs = require('fs') // Escribir un archivo
 const config = require('../utilitarios/configData')
 
 module.exports = {
@@ -6,18 +5,17 @@ module.exports = {
 
   demoTestAsync: async function (browser) {
     const { npm_config_varUser, npm_config_varPassword, npm_config_varclienteCI, npm_config_varInicioMes, npm_config_varFinMes, npm_config_varInicioAnio, npm_config_varFinAnio } = process.env
-    // ? Variables de entrada
-    const mainUser = process.env.npm_config_varUser
-    const mainPassword = process.env.npm_config_varPassword
+
+    const mainUser = npm_config_varUser
+    const mainPassword = npm_config_varPassword
     const mainQueryInputUser = `input[name="ctl00$IFMainContent$txtLogin"]`
     const mainQueryInputPassword = `input[name="ctl00$IFMainContent$txtPasswd"]`
     const submitButtonLogin = `.btnAceptar[type="submit"]`
     const submitButtonConsultaHistorica = `a[href="ConsultasDefault.aspx?opPag=3"]`
     const mainQueryInputCodIdentidad = `input[name="ctl00$ctl00$IFMainContent$DefaultContent$txtIdentificacionHistorico"]`
-    const mainCodIdentidad = process.env.npm_config_varclienteCI
+    const mainCodIdentidad = npm_config_varclienteCI
     const submitButtonConsultar = `input[name="ctl00$ctl00$IFMainContent$DefaultContent$btnConsultaHistorico"]`
 
-    // ? Variables Fechas historicas
     // Mes
     const selectInicioMes = `#IFMainContent_DefaultContent_cmbInicioHistorico_ddlMes`
     const mainQueryInicioMes = `option[value="${npm_config_varInicioMes}"]`
@@ -29,24 +27,18 @@ module.exports = {
     const selectFinAnio = `#IFMainContent_DefaultContent_cmbFinHistorico_ddlAnio`
     const mainQueryFinAnio = `option[value="${npm_config_varFinAnio}"]`
 
-    // ? Generar reporte
     const submitButtonConsultarReport = `input[name="ctl00$ctl00$IFMainContent$DefaultContent$btnExportar"]`
 
-    // ! URL
     browser.url('http://apps.supernet.bo/IC/Autentication.aspx')
 
-    //* Body login
-    browser.pause(`${config.time}`)
+    browser.pause(2000)
     browser.setValue(mainQueryInputUser, mainUser)
     browser.setValue(mainQueryInputPassword, mainPassword)
-    const resultClickLogin = await browser.click(submitButtonLogin) // onClick Login
-    console.log('resultClickLogin', resultClickLogin)
+    browser.click(submitButtonLogin) // onClick Login
 
-    // browser.pause(`${config.time}`)
     browser.click(submitButtonConsultaHistorica) // onClick ConsultaHistorica
 
-    // * Body consulta de endeudamiento histórico
-    browser.pause(`${config.time}`)
+    browser.pause(2000)
     browser.click(selectInicioMes)
     browser.click(`${selectInicioMes} ${mainQueryInicioMes}`)
     browser.click(selectFinMes)
@@ -57,13 +49,10 @@ module.exports = {
     browser.click(selectFinAnio)
     browser.click(`${selectFinAnio} ${mainQueryFinAnio}`)
 
-    // * Body consulta documento identidad
-    browser.pause(`${config.time}`)
     browser.setValue(mainQueryInputCodIdentidad, mainCodIdentidad)
     browser.click(submitButtonConsultar) // onClick consulta documento
 
-    // * Body generar reporte
-    browser.pause(`${config.time}`)
+    browser.pause(2000)
     browser.click(submitButtonConsultarReport) // onClick consulta report
     browser.pause(`${config.time}`)
   },

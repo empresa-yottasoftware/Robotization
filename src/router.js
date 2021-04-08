@@ -375,7 +375,7 @@ router.post('/cic-historico', cors(), (req, res) => {
   exec(`npm --varUser=${user} --varPassword=${password} --varclienteCI=${ciCliente} --varInicioMes=${inicioMes} --varFinMes=${finMes} --varInicioAnio=${inicioAnio} --varFinAnio=${finAnio} test -- --tag cic-historico`, (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`)
-      return res.status(404).json({
+      return res.json({
         Correcto: false,
         Mensaje: 'Error al robotizar',
         err: stderr
@@ -388,7 +388,7 @@ router.post('/cic-historico', cors(), (req, res) => {
       })
       .catch(err => {
         console.log(`err`, err)
-        return res.status(404).json(err)
+        return res.json(err)
       })
   })
 })

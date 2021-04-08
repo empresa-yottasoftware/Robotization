@@ -109,7 +109,7 @@ module.exports = {
                       .click(consultaCheck)
                       .pause(8000)
                       .click(resultado)
-                      .pause(8000)
+                      .pause(10000)
                       .end()
                   } else {
                     browser.pause(2000).getText(ci_checkOp1, function(result) {
@@ -153,7 +153,7 @@ module.exports = {
                       .click(consultaCheck)
                       .pause(8000)
                       .click(resultado)
-                      .pause(8000)
+                      .pause(10000)
 
                       .end()
                   }
@@ -188,7 +188,7 @@ module.exports = {
                   .click(consultaCheck)
                   .pause(8000)
                   .click(resultado)
-                  .pause(8000)
+                  .pause(10000)
 
                   .end()
               }
@@ -208,7 +208,7 @@ module.exports = {
                   .click(consultaCheck)
                   .pause(1000)
                   .click(resultado)
-                  .pause(2000)
+                  .pause(10000)
                   .end()
               }
             })

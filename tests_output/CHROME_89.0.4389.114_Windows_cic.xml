@@ -5,9 +5,9 @@
 
   <testsuite name="cic"
     errors="0" failures="0" hostname="" id="" package="cic" skipped="0"
-    tests="1" time="29.18" timestamp="">
+    tests="1" time="31.10" timestamp="">
   
-    <testcase name="CIC advanced search: Reporte" classname="cic" time="29.18" assertions="0">
+    <testcase name="CIC advanced search: Reporte" classname="cic" time="31.10" assertions="0">
     </testcase>
   
 
