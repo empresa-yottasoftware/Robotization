@@ -1,12 +1,15 @@
+const repoFun = require('./repoFun')
+
 function finderCIC(dato = '') {
+  console.log('dato', dato)
   let data = {}
   let separador = '\n' // un espacio en blanco
   let arregloDeSubCadenas = dato.split(separador)
   let arrayAutorizacion = arregloDeSubCadenas[0].split(' ')
-  let autorizacion = arrayAutorizacion[9]
-    ? arrayAutorizacion[9]
-    : arregloDeSubCadenas[6]
-  data['autorizacion'] = autorizacion
+  let autorizacion = repoFun.getAutorizacion(dato)
+
+  data['autorizacion'] = (autorizacion) ? autorizacion : ''
+
 
   let arrayDeuda = arregloDeSubCadenas[4].split(' ')
   let deuda = arrayDeuda[2]
@@ -107,14 +110,14 @@ function finderCPOP(dato = '') {
   //   cumple = 'NO'
   // }
   // return cumple
-
+  console.log(dato)
   dato = dato.replace(/\n/g, ' ')
   let array = dato.split(/ NO /)
   let cumple = ''
   if (array.length === 1) {
-    cumple = 'Si'
+    cumple = 'SI'
   } else {
-   cumple = 'No'
+   cumple = 'NO'
   }
   console.log('cumple :', cumple)
   return cumple

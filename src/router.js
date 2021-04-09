@@ -213,9 +213,9 @@ router.post('/cpop/', cors(), (req, res) => {
   let ciCliente = _ciCliente.split(' ').join('')
   let codigoUsuario = req.body.codigoUsuario
   let ruta = req.body.ruta
-  // let bytes = CryptoJS.AES.decrypt(password, 'PASSWORD')
+  let bytes = CryptoJS.AES.decrypt(password, 'PASSWORD')
   let autorizacion = req.body.autorizacion
-  // password = bytes.toString(CryptoJS.enc.Utf8)
+  password = bytes.toString(CryptoJS.enc.Utf8)
 
   // Fecha
   var f = new Date()
