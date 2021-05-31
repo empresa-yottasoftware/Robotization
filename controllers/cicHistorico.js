@@ -24,7 +24,7 @@ const cicHistorico = (pData = {}) => {
             resolve({
               Correcto: true,
               imageNameCicHirotico: nameArchivoReport,
-              base64CicHistorico: response,
+              base64CicHistorico:'data:application/pdf;base64,' + response,
               fecha,
               tipoRobotizacion: 'Servicio ASFI-CIC-hHISTORICO',
               Resultado: 'Consulta CIC-HISTORICO finalizada correctamente.',

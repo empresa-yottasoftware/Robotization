@@ -5,9 +5,9 @@
 
   <testsuite name="cic-hitorico"
     errors="0" failures="0" hostname="" id="" package="cic-hitorico" skipped="0"
-    tests="1" time="23.22" timestamp="">
+    tests="1" time="35.98" timestamp="">
   
-    <testcase name="demoTestAsync" classname="cic-hitorico" time="23.22" assertions="0">
+    <testcase name="demoTestAsync" classname="cic-hitorico" time="35.98" assertions="0">
     </testcase>
   
 

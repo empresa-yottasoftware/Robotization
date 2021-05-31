@@ -5,9 +5,9 @@
 
   <testsuite name="cpop"
     errors="0" failures="0" hostname="" id="" package="cpop" skipped="0"
-    tests="1" time="11.66" timestamp="">
+    tests="1" time="9.933" timestamp="">
   
-    <testcase name="CIC advanced search: Reporte" classname="cpop" time="11.66" assertions="0">
+    <testcase name="CIC advanced search: Reporte" classname="cpop" time="9.933" assertions="0">
     </testcase>
   
 

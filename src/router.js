@@ -18,6 +18,9 @@ let bodyParser = require('body-parser')
 router.use(bodyParser.json({ limit: '100MB' }))
 router.use(bodyParser.urlencoded({ limit: '100MB', extended: true }))
 
+// * Simulaciones Data
+const JWCICHistorico = require('../simulacion/cic-historico.json')
+
 router.get('/user', (req, res) => {
   res.json({
     username: 'Cameron',
@@ -32,7 +35,10 @@ router.post('/cic', cors(), (req, res) => {
   let password = req.body.password
   let _ciCliente = req.body.ciCliente.trim()
   let ciCliente = _ciCliente.split(' ').join('')
+  let extensionCliente = (req.body.extensionCliente) ? req.body.extensionCliente.trim() : ''
+  // let ciCliente = '4298005OR'
   let codigoUsuario = req.body.codigoUsuario
+  let tipoWS = req.body.tipoWS
   let ruta = req.body.ruta
   let bytes = CryptoJS.AES.decrypt(password, 'PASSWORD')
   password = bytes.toString(CryptoJS.enc.Utf8)
@@ -42,7 +48,7 @@ router.post('/cic', cors(), (req, res) => {
   var f = new Date()
   let fecha = `${f.getDate()}-${f.getMonth() + 1}-${f.getFullYear()}`
 
-  exec(`npm --varUser=${user} --varPassword=${password} --varclienteCI=${ciCliente} test -- --tag cic`, (error, stdout, stderr) => {
+  exec(`npm --varUser=${user} --varPassword=${password} --varclienteCI=${ciCliente} --varclienteExt=${extensionCliente}  --vartipoWS=${tipoWS} test -- --tag cic`, (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`)
       res.send('Error al consultar CIC')
@@ -350,6 +356,9 @@ router.post('/servidor/:tipo', cors(), (req, res) => {
           Resultado: cicNit[0].Resultado,
           Correcto: true
         })
+        break
+      case 'cic-historico':
+        res.send(JWCICHistorico)
         break
 
       default:
